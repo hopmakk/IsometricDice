@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Isometric Dice"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "yellow",
+"res://Scenes/": "blue",
+"res://Scripts/": "teal"
+}
+
 [input]
 
 ui_left={

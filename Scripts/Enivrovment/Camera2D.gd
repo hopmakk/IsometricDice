@@ -16,6 +16,7 @@ const MIN_ZOOM: float = 3.0
 
 func _ready():
 	SetCurrentZoom()
+	pass
 
 
 
@@ -40,6 +41,7 @@ func _physics_process(delta):
 	if _targetPosition - currentPosition != Vector2.ZERO:
 		var newPosition = currentPosition.lerp(_targetPosition, SmothSpeed * delta)
 		position = newPosition
+	pass
 
 
 
@@ -56,8 +58,10 @@ func _unhandled_input(event):
 		if _currentZoom > MIN_ZOOM:
 			_currentZoom -= ZOOM_SPEED
 			SetCurrentZoom()
+	pass
 
 
 
 func SetCurrentZoom():
 	zoom = Vector2(_currentZoom, _currentZoom)
+	pass

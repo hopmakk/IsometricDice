@@ -1,32 +1,28 @@
 extends Node2D
-class_name TerrainGenerator
-# Генерирует уровни на своей сцене. При подаче в Генератор экземпляра уровня, создает его.
-# Присоединяется к узлу с заранее заготовленными узлами.
+class_name TerrainGeneratorC1
+# Генерирует ландшафт уровня.
+
+
 
 const LANDSCAPE_SIZE: Vector2 = Vector2(10,10)
 
 var _noise: Noise
-var _GroundTileMap: TileMapLayer
-var _UnderwaterTileMap: TileMapLayer
+var _groundTileMap: TileMapLayer
+var _underwaterTileMap: TileMapLayer
 
 
 
 func _ready():
-	_GroundTileMap = $Ground
-	_UnderwaterTileMap = $Underwater
+	_groundTileMap = $Ground
+	_underwaterTileMap = $Underwater
 	_noise = $NoiseSprite.texture.noise
-	GenerateMap(LANDSCAPE_SIZE)
+	pass
 
 
 
-func _process(delta):
-	if Input.is_key_pressed(KEY_SHIFT):
-		#---	 
-		var landscapeX : int = int(get_node("/root/Main/UI/Control/x_tb").text)
-		var landscapeY : int = int(get_node("/root/Main/UI/Control/y_tb").text)
-		GenerateMap(Vector2(landscapeX, landscapeY))
-		#---
-		#GenerateMap()
+func GenerateLevelTerrain(levelData: LevelData):
+	GenerateMap(levelData.Size)
+	pass
 
 
 
@@ -56,9 +52,10 @@ func GenerateMap(landscapeSize: Vector2):
 	var underwaterNoiseGaussMatrix = ApplyGaussFunc(noiseMatrix, 5.0, landscapeSize) # обработка функцией гаусса для подводного ландшафта
 	
 	# расставляем тайлы
-	PutTiles(_GroundTileMap, groundNoiseGaussMatrix, Vector2i.ZERO, GroundTileTypes)
+	PutTiles(_groundTileMap, groundNoiseGaussMatrix, Vector2i.ZERO, GroundTileTypes)
 	# расставляем тайлы под водой
-	PutTiles(_UnderwaterTileMap, underwaterNoiseGaussMatrix, Vector2i(1,1), UnderwaterTileTypes)
+	PutTiles(_underwaterTileMap, underwaterNoiseGaussMatrix, Vector2i(1,1), UnderwaterTileTypes)
+	pass
 
 
 
@@ -70,6 +67,7 @@ func PutTiles(tileMap: TileMapLayer, noiseMatrix: Array, offset: Vector2i, tileT
 				if noiseMatrix[x][y] > tileTypesMas[index].NoiseBound:
 					tileMap.set_cell(Vector2i(x,y) + offset, 0, tileTypesMas[index].TilesetCoords)
 					break
+	pass
 
 
 
@@ -116,3 +114,4 @@ class TileTypeInfo:
 		Name = name
 		TilesetCoords = tilesetCoords
 		NoiseBound = noiseBound
+		pass
