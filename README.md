@@ -3,7 +3,7 @@
 **Isometric map generator** tech demo with top-down view.  
 Procedural terrain built from noise-driven isometric tiles.  
 
-![Demo](Presentation/GameplayDemo.mp4)
+![Demo](Presentation/Gameplay.gif)
 
 ## 🔍 How It Works  
 1. **Noise configuration** for terrain tiles.  
