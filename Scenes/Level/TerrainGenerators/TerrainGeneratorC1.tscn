@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dq7paxq7x670d"]
 
-[ext_resource type="Script" path="res://Scripts/Level/Chapter1/TerrainGeneratorC1.gd" id="1_148uu"]
+[ext_resource type="Script" path="res://Scripts/Level/Chapter1/TerrainGeneratorC1.cs" id="1_2ygwf"]
 [ext_resource type="Texture2D" uid="uid://ct1h2woxsxlyt" path="res://Assets/Landscape/landscape.png" id="2_swwlo"]
 [ext_resource type="Shader" path="res://Shaders/Water.gdshader" id="3_4wxew"]
 [ext_resource type="Texture2D" uid="uid://dxvnnl65k7esb" path="res://icon.svg" id="4_6chct"]
@@ -80,7 +80,7 @@ shader_parameter/_noise1 = SubResource("NoiseTexture2D_7lqgk")
 shader_parameter/_noise2 = SubResource("NoiseTexture2D_cu2ry")
 
 [node name="TerrainGeneratorC1" type="Node2D"]
-script = ExtResource("1_148uu")
+script = ExtResource("1_2ygwf")
 
 [node name="NoiseSprite" type="Sprite2D" parent="."]
 visible = false

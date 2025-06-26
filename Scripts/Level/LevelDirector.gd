@@ -9,14 +9,11 @@ class_name LevelDirector
 @onready var _packedTerrainGeneratorC1: PackedScene = preload("res://Scenes/Level/TerrainGenerators/TerrainGeneratorC1.tscn")
 var _currentLevel: LevelData
 
-func fdsfsd():
-	print()
-	
-	print()
+
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_SHIFT):
-		#---	 
+		#---	
 		#var landscapeX : int = int(get_node("/root/Main/UI/Control/x_tb").text)
 		#var landscapeY : int = int(get_node("/root/Main/UI/Control/y_tb").text)
 		#GenerateMap(Vector2(landscapeX, landscapeY))

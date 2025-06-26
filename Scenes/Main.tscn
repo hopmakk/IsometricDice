@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://8dda1wpf1vgu"]
 
-[ext_resource type="Script" path="res://Scripts/Level/LevelDirector.gd" id="1_sq8x8"]
+[ext_resource type="Script" path="res://Scripts/Level/LevelDirector.cs" id="1_2imjw"]
 [ext_resource type="Script" path="res://Scripts/Enivrovment/Camera2D.gd" id="3_g3t6g"]
 
 [node name="Main" type="Node2D"]
 
 [node name="LevelDirector" type="Node2D" parent="."]
-script = ExtResource("1_sq8x8")
+script = ExtResource("1_2imjw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(86, 125)
